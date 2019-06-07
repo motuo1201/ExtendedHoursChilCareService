@@ -1,0 +1,36 @@
+body {
+    -webkit-print-color-adjust: exact;
+}
+thead{
+    background-color: lightgray !important
+}
+h5{
+    margin-block-start: 0.8em;
+    margin-block-end:   0.8em;
+}
+.box {
+    float: left;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.boxContainer {
+    overflow: hidden;
+    height: 20mm;
+}
+
+/* clearfix */
+.boxContainer:before,
+.boxContainer:after {
+    content: "";
+    display: table;
+}
+
+.boxContainer:after {
+    clear: both;
+}
+#tbl-bdr table,#tbl-bdr td,#tbl-bdr th {
+    border-collapse: collapse;
+    border:1px solid #333;
+}        
