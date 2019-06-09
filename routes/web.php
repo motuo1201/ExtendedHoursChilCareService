@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('auth\login');
+    return view('auth/login');
 });
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function (){
+    Route::post('/child/register','ChildController@register')->name('register-children');
     Route::get('/main', 'MainController@index')->name('main'); //メイン画面表示
     Route::get('/print','MainController@print')->name('print');//印刷画面表示
 });
