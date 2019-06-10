@@ -21,3 +21,8 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/main', 'MainController@index')->name('main'); //メイン画面表示
     Route::get('/print','MainController@print')->name('print');//印刷画面表示
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

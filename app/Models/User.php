@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use \TCG\Voyager\Models\User as VoyageUser;
 
-class User extends Authenticatable
+class User extends VoyageUser
 {
     use Notifiable;
 
