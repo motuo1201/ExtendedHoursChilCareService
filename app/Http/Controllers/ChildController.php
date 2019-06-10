@@ -11,7 +11,6 @@ class ChildController extends Controller
     public function register(Request $request,Child $child)
     {
         $input = $request->all();
-        dd($child->all());
         for ($i=0; $i < 3; $i++) {
             if($input['family_name'][$i]!==null){
                 $children['user_id'    ] = Auth::user()->id;
