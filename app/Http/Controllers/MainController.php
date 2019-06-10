@@ -13,13 +13,21 @@ class MainController extends Controller
      *
      * @return void
      */
-    public function index()
+    public function index(Schedule $schedule)
     {
         $user = Auth::user();
         if($user->children->count() === 0){
             return view('registrer_children');
         }
-        return view('main')->with('user',$user);
+        $registered = $schedule->where('users.id'      ,$user->id)
+                               ->where('sheduled_date' ,date('Y/m/d'))
+                               ->join('children','schedules.child_id','=','children.id')
+                               ->join('users'   ,'children.user_id'  ,'=','users.id'   )
+                               ->get();
+        if($registered->count()===0){
+            return view('main')->with('user',$user);
+        }
+        return view('registered');
     }
     /**
      * お迎え予定登録処理
@@ -41,7 +49,7 @@ class MainController extends Controller
                 $schedule->fill($child)->save();
             }
         }
-        return redirect(route('main'));
+        return view('finished');
     }
 
     public function print()
