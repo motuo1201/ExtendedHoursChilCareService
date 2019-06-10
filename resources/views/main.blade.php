@@ -17,6 +17,7 @@
                     氏名:{{$children->family_name}} {{$children->first_name}}
                     クラス:{{$children->class}}{{$children->group}}組
                 </h4>
+                <input type="hidden" value="{{$children->id}}" name="child[{{$children->id}}][child_id]">
                 <hr>
     
                 <div class="form-group">

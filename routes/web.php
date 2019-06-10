@@ -12,14 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return redirect('/login');
 });
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function (){
-    Route::post('/child/register','ChildController@register')->name('register-children');
-    Route::get('/main', 'MainController@index')->name('main'); //メイン画面表示
-    Route::get('/print','MainController@print')->name('print');//印刷画面表示
+    Route::get('/main'              ,'MainController@index'           )->name('main'); //メイン画面表示
+    Route::get('/print'             ,'MainController@print'           )->name('print');//印刷画面表示
+    Route::post('/child/register'   ,'ChildController@register'       )->name('register-children');
+    Route::post('/register-schedule','MainController@registerSchedule')->name('registerSchedule');
 });
 
 
