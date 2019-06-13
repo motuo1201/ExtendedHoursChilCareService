@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     protected $fillable = ['child_id','transferee','estimated_time','body_temperature','sheduled_date'];
+
+    public function child()
+    {
+        return $this->belongsTo('App\Models\Child');
+    }
 }

@@ -51,9 +51,4 @@ class MainController extends Controller
         }
         return view('finished');
     }
-
-    public function print()
-    {
-        return view('print');
-    }
 }
